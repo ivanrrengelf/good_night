@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Good Night - Interpreta tus Sueños</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <i class="fas fa-moon"></i>
+                    <h1>Good Night</h1>
+                </div>
+                <nav class="nav">
+                    <button class="nav-btn active" data-section="dreams">
+                        <i class="fas fa-cloud"></i>
+                        Sueños
+                    </button>
+                    <button class="nav-btn" data-section="metrics">
+                        <i class="fas fa-chart-line"></i>
+                        Métricas
+                    </button>
+                    <button class="nav-btn" data-section="tasks">
+                        <i class="fas fa-tasks"></i>
+                        Tareas
+                    </button>
+                    <button class="nav-btn" data-section="history">
+                        <i class="fas fa-history"></i>
+                        Historial
+                    </button>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Dreams Section -->
+            <section id="dreams" class="section active">
+                <div class="section-header">
+                    <h2>Registra tu Sueño</h2>
+                    <p>Graba o escribe tu sueño para obtener una interpretación personalizada</p>
+                </div>
+                
+                <div class="dream-input-container">
+                    <!-- Audio Recording -->
+                    <div class="audio-recorder">
+                        <div class="recorder-visual">
+                            <div class="recording-indicator"></div>
+                            <button id="recordBtn" class="record-btn">
+                                <i class="fas fa-microphone"></i>
+                            </button>
+                        </div>
+                        <div class="recorder-controls">
+                            <span id="recordingTime">00:00</span>
+                            <div class="recording-status">Presiona para grabar</div>
+                        </div>
+                    </div>
+
+                    <!-- Text Input Alternative -->
+                    <div class="text-input-section">
+                        <div class="input-divider">
+                            <span>o escribe tu sueño</span>
+                        </div>
+                        <textarea id="dreamText" placeholder="Describe tu sueño aquí..." rows="4"></textarea>
+                    </div>
+
+                    <!-- Submit Button -->
+                    <button id="interpretBtn" class="interpret-btn" disabled>
+                        <i class="fas fa-magic"></i>
+                        Interpretar Sueño
+                    </button>
+                </div>
+
+                <!-- Dream Interpretation Results -->
+                <div id="interpretationResults" class="interpretation-results hidden">
+                    <div class="results-header">
+                        <h3>Interpretación de tu Sueño</h3>
+                        <div class="interpretation-date"></div>
+                    </div>
+                    <div class="interpretation-content">
+                        <div class="interpretation-section">
+                            <h4><i class="fas fa-brain"></i> Análisis Psicológico</h4>
+                            <div id="psychologicalAnalysis" class="analysis-content"></div>
+                        </div>
+                        <div class="interpretation-section">
+                            <h4><i class="fas fa-eye"></i> Simbolismo</h4>
+                            <div id="symbolism" class="analysis-content"></div>
+                        </div>
+                        <div class="interpretation-section">
+                            <h4><i class="fas fa-heart"></i> Patrones Emocionales</h4>
+                            <div id="emotionalPatterns" class="analysis-content"></div>
+                        </div>
+                    </div>
+                    <div class="interpretation-actions">
+                        <button id="saveInterpretation" class="save-btn">
+                            <i class="fas fa-save"></i>
+                            Guardar Interpretación
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sleep Metrics Section -->
+            <section id="metrics" class="section">
+                <div class="section-header">
+                    <h2>Métricas de Sueño</h2>
+                    <p>Registra y analiza tus patrones de sueño</p>
+                </div>
+                
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <i class="fas fa-bed"></i>
+                            <h3>Horas de Sueño</h3>
+                        </div>
+                        <div class="metric-input">
+                            <input type="time" id="bedTime" placeholder="Hora de acostarse">
+                            <input type="time" id="wakeTime" placeholder="Hora de despertar">
+                        </div>
+                        <div class="metric-display">
+                            <span id="totalSleep">0h 0m</span>
+                        </div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <i class="fas fa-star"></i>
+                            <h3>Calidad del Sueño</h3>
+                        </div>
+                        <div class="quality-rating">
+                            <div class="stars">
+                                <i class="fas fa-star" data-rating="1"></i>
+                                <i class="fas fa-star" data-rating="2"></i>
+                                <i class="fas fa-star" data-rating="3"></i>
+                                <i class="fas fa-star" data-rating="4"></i>
+                                <i class="fas fa-star" data-rating="5"></i>
+                            </div>
+                            <span id="qualityText">Selecciona una calificación</span>
+                        </div>
+                    </div>
+
+                    <div class="metric-card">
+                        <div class="metric-header">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <h3>Interrupciones</h3>
+                        </div>
+                        <div class="metric-input">
+                            <input type="number" id="interruptions" min="0" placeholder="Número de interrupciones">
+                            <textarea id="interruptionNotes" placeholder="Notas sobre las interrupciones..." rows="2"></textarea>
+                        </div>
+                    </div>
+                </div>
+
+                <button id="saveMetrics" class="save-metrics-btn">
+                    <i class="fas fa-save"></i>
+                    Guardar Métricas del Día
+                </button>
+            </section>
+
+            <!-- Tasks Section -->
+            <section id="tasks" class="section">
+                <div class="section-header">
+                    <h2>Rutinas de Sueño</h2>
+                    <p>Gestiona tus tareas antes de dormir y al despertar</p>
+                </div>
+
+                <div class="tasks-container">
+                    <div class="task-category">
+                        <h3><i class="fas fa-moon"></i> Antes de Dormir</h3>
+                        <div class="task-list" id="preSleepTasks">
+                            <!-- Tasks will be added dynamically -->
+                        </div>
+                        <div class="add-task">
+                            <input type="text" id="newPreSleepTask" placeholder="Nueva tarea antes de dormir...">
+                            <button id="addPreSleepTask">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="task-category">
+                        <h3><i class="fas fa-sun"></i> Al Despertar</h3>
+                        <div class="task-list" id="postSleepTasks">
+                            <!-- Tasks will be added dynamically -->
+                        </div>
+                        <div class="add-task">
+                            <input type="text" id="newPostSleepTask" placeholder="Nueva tarea al despertar...">
+                            <button id="addPostSleepTask">
+                                <i class="fas fa-plus"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- History Section -->
+            <section id="history" class="section">
+                <div class="section-header">
+                    <h2>Historial de Sueños</h2>
+                    <p>Explora tus sueños anteriores y sus interpretaciones</p>
+                </div>
+
+                <div class="history-filters">
+                    <input type="date" id="dateFilter" class="filter-input">
+                    <select id="categoryFilter" class="filter-input">
+                        <option value="">Todas las categorías</option>
+                        <option value="nightmare">Pesadillas</option>
+                        <option value="lucid">Sueños Lúcidos</option>
+                        <option value="recurring">Recurrentes</option>
+                        <option value="prophetic">Proféticos</option>
+                    </select>
+                    <input type="text" id="searchFilter" placeholder="Buscar en sueños..." class="filter-input">
+                </div>
+
+                <div id="dreamHistory" class="dream-history">
+                    <!-- Dream history items will be added dynamically -->
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay hidden">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <p>Interpretando tu sueño...</p>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/app.js"></script>
+    <script src="js/audio.js"></script>
+    <script src="js/ai.js"></script>
+    <script src="js/storage.js"></script>
+</body>
+</html>
