@@ -2,6 +2,8 @@
 
 **Good Night** es una aplicación web innovadora que utiliza inteligencia artificial para interpretar tus sueños y ayudarte a mejorar tus hábitos de sueño. Con un diseño elegante en tonos morados y una interfaz intuitiva, Good Night te permite registrar tus sueños mediante audio o texto, obtener interpretaciones detalladas y gestionar tus rutinas de sueño.
 
+> **Nota**: Esta aplicación fue desarrollada con **Windsurf** como proyecto de práctica para aprender a deployar aplicaciones web en **AWS**.
+
 ## ✨ Características Principales
 
 ### 🎤 Grabación de Sueños
@@ -129,6 +131,13 @@ La aplicación utiliza un hermoso tema morado con:
 - Navegación táctil amigable
 
 ## 🔧 Desarrollo
+
+### Desarrollado con Windsurf
+Esta aplicación fue creada utilizando **Windsurf**, el IDE de IA de nueva generación, como proyecto de práctica para:
+- Aprender el proceso de desarrollo web moderno
+- Experimentar con deployment en **AWS**
+- Practicar arquitecturas de aplicaciones web
+- Explorar integración de APIs de IA
 
 ### Estructura del Proyecto
 ```
